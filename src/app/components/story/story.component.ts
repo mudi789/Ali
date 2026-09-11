@@ -17,19 +17,19 @@ interface Milestone {
 export class StoryComponent {
   milestones: Milestone[] = [
     {
-      date: 'El día 1',
+      date: 'El día 19',
       title: 'Donde empezó todo',
-      description: 'Cuéntame la fecha y el momento exacto y lo dejo grabado aquí para siempre.',
+      description: 'Desde entonces, el 19 de cada mes dejó de ser un día cualquiera para convertirse en nuestro pequeño aniversario.',
     },
     {
       date: 'La primera vez',
       title: 'Ese momento que no se olvida',
-      description: 'Un recuerdo, una foto, una frase... este espacio es para lo que tú quieras contarme.',
+      description: 'Entre risas, nervios y una que otra torpeza, supe que quería muchos más momentos como ese contigo.',
     },
     {
       date: 'Hoy',
       title: 'Seguimos escribiendo esta historia',
-      description: 'Cada día suma un capítulo más a esto que estamos construyendo juntos.',
+      description: 'Cada 19 celebramos un mes más, y cada día suma un capítulo más a esto que estamos construyendo juntos.',
     },
   ];
 }

@@ -13,6 +13,6 @@ export class LetterComponent {
     'Alicia,',
     'Quería hacerte algo distinto, algo que no se guarde en un cajón ni se pierda entre mensajes. Así que te construí este pequeño espacio, hecho a mano, pensando en ti.',
     'Aquí va a vivir nuestra historia: cada foto, cada fecha importante, cada cosa que quiero recordar contigo. Todavía le faltan cosas, pero como todo lo nuestro, se va a ir llenando con el tiempo.',
-    'Gracias por ser mi persona favorita.',
+    'Feliz 19, mi amor. Gracias por ser mi persona favorita.',
   ];
 }
