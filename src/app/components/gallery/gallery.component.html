@@ -1,0 +1,60 @@
+<section id="galeria" class="relative py-28 sm:py-40 px-6">
+  <div class="mx-auto max-w-3xl text-center mb-20">
+    <p appScrollReveal class="font-body text-xs sm:text-sm tracking-[0.4em] uppercase text-nova-300/80 mb-4">
+      Recuerdos
+    </p>
+    <h2 appScrollReveal class="reveal-delay-1 font-display text-4xl sm:text-6xl font-bold">
+      Momentos <span class="text-gradient-nova">nuestros</span>
+    </h2>
+  </div>
+
+  <div class="mx-auto grid max-w-5xl grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6">
+    <button
+      *ngFor="let p of photos; let i = index"
+      type="button"
+      appScrollReveal
+      [class]="'reveal-delay-' + ((i % 4) + 1)"
+      (click)="open(p)"
+      class="group relative aspect-square overflow-hidden rounded-2xl border border-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-nova-400"
+    >
+      <div class="absolute inset-0 bg-gradient-to-br {{ p.gradient }} opacity-70 transition-transform duration-700 ease-out group-hover:scale-110"></div>
+      <img *ngIf="p.src" [src]="p.src" [alt]="p.caption" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" />
+      <div class="absolute inset-0 flex items-end bg-gradient-to-t from-black/70 via-black/0 to-black/0 p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+        <span class="font-body text-sm text-white">{{ p.caption }}</span>
+      </div>
+      <svg *ngIf="!p.src" class="absolute inset-0 m-auto h-8 w-8 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3 5.25h18M3 5.25c-.621 0-1.125.504-1.125 1.125v13.25c0 .621.504 1.125 1.125 1.125h18c.621 0 1.125-.504 1.125-1.125V6.375c0-.621-.504-1.125-1.125-1.125M3 5.25l3.75-3h10.5l3.75 3" />
+      </svg>
+    </button>
+  </div>
+
+  <p appScrollReveal class="mx-auto mt-8 max-w-md text-center font-body text-xs text-white/40">
+    Pásame las fotos y las coloco aquí, en su lugar perfecto.
+  </p>
+</section>
+
+<!-- Lightbox -->
+<div
+  *ngIf="selected"
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm px-6 animate-fade-up"
+  style="animation-duration: 0.35s;"
+  (click)="close()"
+>
+  <button
+    type="button"
+    class="absolute top-6 right-6 text-white/60 hover:text-white transition-colors"
+    (click)="close()"
+    aria-label="Cerrar"
+  >
+    <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+
+  <div class="max-w-lg w-full text-center" (click)="$event.stopPropagation()">
+    <div class="aspect-square w-full rounded-2xl overflow-hidden border border-white/10 shadow-glow-lg bg-gradient-to-br {{ selected.gradient }}">
+      <img *ngIf="selected.src" [src]="selected.src" [alt]="selected.caption" class="h-full w-full object-cover" />
+    </div>
+    <p class="mt-5 font-display text-lg text-white/80">{{ selected.caption }}</p>
+  </div>
+</div>
